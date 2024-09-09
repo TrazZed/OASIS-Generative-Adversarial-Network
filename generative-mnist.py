@@ -2,14 +2,10 @@ import torch
 import torch.nn as nn
 import torchvision
 import torchvision.transforms as transforms
-<<<<<<< HEAD
 import torchvision.utils as vutils
 import time
 import matplotlib.pyplot as plt
 import numpy as np
-=======
-import time
->>>>>>> 6c0d20ebd1234f0c145932ede50ed8ff28497f5e
 
 # Configure the device
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
@@ -21,7 +17,6 @@ if not torch.cuda.is_available():
 Setup Data Pipeline
 =========================================================================================================================================
 """
-<<<<<<< HEAD
 
 workers = 2 # Number of workers for dataloader
 batch_size = 128 # Batch size during training
@@ -41,37 +36,6 @@ testset = torchvision.datasets.MNIST(root='~/mnist', train=False, download=True,
 train_loader = torch.utils.data.DataLoader(trainset, batch_size=128, shuffle=True)
 test_loader = torch.utils.data.DataLoader(testset, batch_size=100, shuffle=False)
 
-=======
-transform = transforms.Compose([transforms.ToTensor(), transforms.Normalize((0.5,), (1.0,))])
-
-trainset = torchvision.datasets.MNIST(root='/content/mnist', train=True, download=True, transform=transform)
-train_loader = torch.utils.data.DataLoader(trainset, batch_size=128, shuffle=True)
-
-testset = torchvision.datasets.MNIST(root='/content/mnist', train=False, download=True, transform=transform)
-test_loader = torch.utils.data.DataLoader(testset, batch_size=100, shuffle=False)
-
-# Number of workers for dataloader
-workers = 2
-# Batch size during training
-batch_size = 128
-# Spatial size of training images. All images will be resized to this size using a transformer.
-image_size = 64
-# Number of channels in the training images. For color images this is 3
-nc = 3
-# Size of z latent vector (i.e. size of generator input)
-nz = 100
-# Size of feature maps in generator
-ngf = 64
-# Size of feature maps in discriminator
-ndf = 64
-# Number of training epochs
-num_epochs = 5
-# Learning rate for optimizers
-lr = 0.0002
-# Beta1 hyperparameter for Adam optimizers
-beta1 = 0.5
-
->>>>>>> 6c0d20ebd1234f0c145932ede50ed8ff28497f5e
 """
 =========================================================================================================================================
 Model
@@ -180,7 +144,6 @@ fake_label = 0.
 # Setup Adam optimizers for both G and D
 optimizerD = torch.optim.Adam(netD.parameters(), lr=lr, betas=(beta1, 0.999))
 optimizerG = torch.optim.Adam(netG.parameters(), lr=lr, betas=(beta1, 0.999))
-<<<<<<< HEAD
 
 """
 =========================================================================================================================================
@@ -329,5 +292,3 @@ with torch.no_grad():
 
 accuracy = 100.0 * correct / total
 print(f"Test Accuracy: {accuracy:.2f}%")
-=======
->>>>>>> 6c0d20ebd1234f0c145932ede50ed8ff28497f5e
