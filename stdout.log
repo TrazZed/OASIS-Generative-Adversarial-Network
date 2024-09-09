@@ -1,0 +1,49 @@
+Generator(
+  (main): Sequential(
+    (0): ConvTranspose2d(100, 512, kernel_size=(4, 4), stride=(1, 1), bias=False)
+    (1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (2): ReLU(inplace=True)
+    (3): ConvTranspose2d(512, 256, kernel_size=(4, 4), stride=(2, 2), padding=(1, 1), bias=False)
+    (4): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (5): ReLU(inplace=True)
+    (6): ConvTranspose2d(256, 128, kernel_size=(4, 4), stride=(2, 2), padding=(1, 1), bias=False)
+    (7): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (8): ReLU(inplace=True)
+    (9): ConvTranspose2d(128, 64, kernel_size=(4, 4), stride=(2, 2), padding=(1, 1), bias=False)
+    (10): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (11): ReLU(inplace=True)
+    (12): ConvTranspose2d(64, 1, kernel_size=(4, 4), stride=(2, 2), padding=(1, 1), bias=False)
+    (13): Tanh()
+  )
+)
+Discriminator(
+  (main): Sequential(
+    (0): Conv2d(1, 64, kernel_size=(4, 4), stride=(2, 2), padding=(1, 1), bias=False)
+    (1): LeakyReLU(negative_slope=0.2, inplace=True)
+    (2): Conv2d(64, 128, kernel_size=(4, 4), stride=(2, 2), padding=(1, 1), bias=False)
+    (3): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (4): LeakyReLU(negative_slope=0.2, inplace=True)
+    (5): Conv2d(128, 256, kernel_size=(4, 4), stride=(2, 2), padding=(1, 1), bias=False)
+    (6): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (7): LeakyReLU(negative_slope=0.2, inplace=True)
+    (8): Conv2d(256, 512, kernel_size=(4, 4), stride=(2, 2), padding=(1, 1), bias=False)
+    (9): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (10): LeakyReLU(negative_slope=0.2, inplace=True)
+    (11): Conv2d(512, 1, kernel_size=(4, 4), stride=(1, 1), bias=False)
+    (12): Sigmoid()
+  )
+)
+Starting Training Loop...
+[0/1][0/469]	Loss_D: 1.3896	Loss_G: 7.4344	D(x): 0.7600	D(G(z)): 0.6074 / 0.0010
+[0/1][50/469]	Loss_D: 0.0595	Loss_G: 13.5055	D(x): 0.9660	D(G(z)): 0.0016 / 0.0000
+[0/1][100/469]	Loss_D: 0.1620	Loss_G: 5.6516	D(x): 0.9677	D(G(z)): 0.1131 / 0.0056
+[0/1][150/469]	Loss_D: 0.1980	Loss_G: 4.8624	D(x): 0.9077	D(G(z)): 0.0404 / 0.0125
+[0/1][200/469]	Loss_D: 0.0595	Loss_G: 5.0503	D(x): 0.9690	D(G(z)): 0.0249 / 0.0113
+[0/1][250/469]	Loss_D: 0.1385	Loss_G: 4.1895	D(x): 0.9538	D(G(z)): 0.0801 / 0.0219
+[0/1][300/469]	Loss_D: 0.1574	Loss_G: 5.0507	D(x): 0.9736	D(G(z)): 0.1119 / 0.0110
+[0/1][350/469]	Loss_D: 0.3858	Loss_G: 3.5720	D(x): 0.8722	D(G(z)): 0.1722 / 0.0428
+[0/1][400/469]	Loss_D: 0.1812	Loss_G: 3.3370	D(x): 0.9069	D(G(z)): 0.0675 / 0.0512
+[0/1][450/469]	Loss_D: 0.1955	Loss_G: 4.4908	D(x): 0.9704	D(G(z)): 0.1413 / 0.0177
+Starting Testing Phase...
+Test Loss: 0.0134
+Test Accuracy: 100.00%
