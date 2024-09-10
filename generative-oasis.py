@@ -65,7 +65,6 @@ test_loader = torch.utils.data.DataLoader(testset, batch_size=batch_size,
 Model
 =========================================================================================================================================
 """
-# Custom weights initialization called on ``netG`` and ``netD``
 # This generates noise from a normal distribution with mean 0 and std deviation 0.02
 # These are the parameters specified by the DCGAN Paper
 def weights_init(m):
@@ -159,7 +158,6 @@ optimizerG = torch.optim.Adam(netG.parameters(), lr=lr, betas=(beta1, 0.999))
 Train the Model
 =========================================================================================================================================
 """
-# Training Loop
 img_list = []
 G_losses = []
 D_losses = []
@@ -277,7 +275,6 @@ plt.imshow(np.transpose(img_list[-1],(1,2,0)))
 plt.savefig('images.png')
 plt.close()
 
-# Testing Phase
 print("Starting Testing Phase...")
 netD.eval()  # Set Discriminator to evaluation mode
 
